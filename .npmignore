@@ -1,0 +1,4 @@
+src/
+test/
+.vscode/
+.nyc_output/
