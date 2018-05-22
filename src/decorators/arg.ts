@@ -2,7 +2,7 @@ import { GraphQLList, GraphQLNonNull } from "graphql";
 import { getGraphQLType, getParameterName, isThunk } from "../lib/common";
 import Metadata from "../lib/Metadata";
 
-export default function arg(returns) {
+export default function arg(returns?) {
   return (target, propertyKey, index) => {
     const metaField = Metadata.for(target, propertyKey);
     const metaArg = Metadata.for(target, propertyKey, index);

@@ -1,41 +1,25 @@
-import { mockServer } from "graphql-tools";
 import { createSchema, type, field } from "../../src";
 import { expect } from "chai";
+import TestServer from "../TestServer";
 
 describe("Test @type", () => {
   @type
-  class TestType {
+  class TypeQuery {
     @field(String)
-    get name() {
-      return "name";
+    value() {
+      return "test";
     }
   }
 
-  @type
-  class BaseQuery {
-    @field(TestType)
-    item() {
-      return new TestType();
-    }
-  }
-
-  const schema = createSchema(BaseQuery);
-  const mock = mockServer(schema, {
-    BaseQuery: () => ({
-      item: () => ({
-        __typename: "TestType",
-        name: "testing"
-      })
-    })
-  });
+  const schema = createSchema(TypeQuery);
+  const server = new TestServer(schema);
 
   it("should be exported", async function() {
-    const result = await mock.query(`query { item { name } }`);
-    console.log(result.errors);
-    expect(result.errors).to.be.undefined;
-    const data = result.data;
+    const { body } = await server.query({ query: `query { value }` });
+    console.log(body.errors);
+    expect(body.errors).to.be.undefined;
+    const data = body.data;
     expect(data).to.not.be.undefined;
-    expect(data && data.item).to.not.be.undefined;
-    expect(data && data.item && data.item.name).to.eq("testing");
+    expect(data && data.value).to.eq("test");
   });
 });
