@@ -30,13 +30,13 @@ export default function arg(returns?) {
     if (metaArg.nonNull) {
       typeDef = new GraphQLNonNull(typeDef);
     }
-    if (!metaField.args) {
-      metaField.args = {};
-    }
-    metaField.args[name] = {
-      defaultValue: metaArg.defaultValue,
-      description: metaArg.description,
-      type: typeDef
+    metaField.args = {
+      ...(metaField.args || {}),
+      [name]: {
+        defaultValue: metaArg.defaultValue,
+        description: metaArg.description,
+        type: typeDef
+      }
     };
   };
 }
