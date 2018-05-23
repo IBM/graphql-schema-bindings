@@ -16,7 +16,6 @@ describe("Test @type", () => {
 
   it("should be exported", async function() {
     const { body } = await server.query({ query: `query { value }` });
-    console.log(body.errors);
     expect(body.errors).to.be.undefined;
     const data = body.data;
     expect(data).to.not.be.undefined;

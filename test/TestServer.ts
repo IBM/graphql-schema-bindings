@@ -6,9 +6,9 @@ import supertest, { SuperTest, Test } from "supertest";
 export default class TestServer {
   app: SuperTest<Test>;
 
-  constructor(schema) {
+  constructor(schema, context?) {
     const app = express();
-    app.use("/gql", json(), graphqlExpress({ schema }));
+    app.use("/gql", json(), graphqlExpress({ schema, context }));
     this.app = supertest(app);
   }
 

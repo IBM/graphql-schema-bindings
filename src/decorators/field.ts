@@ -13,7 +13,7 @@ import { GraphQLList, GraphQLNonNull } from "graphql";
  * Note that some types cannot be inferred, such as arrays (returns Array) and promise
  * resolutions (returns Promise). In that case use the @returns decorator.
  */
-export default function field(typeRef) {
+export default function field(typeRef?) {
   return (target, propertyKey) => {
     addField(target, propertyKey);
     const metaField = Metadata.for(target, propertyKey);

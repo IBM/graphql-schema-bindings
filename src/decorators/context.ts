@@ -7,7 +7,7 @@ import Metadata from "../lib/Metadata";
  *   or the method to which the context will be passed as an argument.
  *   index The index of the argument.
  */
-export default function context(target, propertyKey, index) {
+export default function context(target, propertyKey, index?) {
   if (index === undefined) {
     Metadata.for(target).context = propertyKey;
   } else {
