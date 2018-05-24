@@ -1,4 +1,5 @@
 export { createSchema } from "./lib/common";
+export { createEnum } from "./lib/enum";
 
 export { default as arg } from "./decorators/arg";
 export { default as context } from "./decorators/context";

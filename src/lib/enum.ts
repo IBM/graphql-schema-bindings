@@ -13,7 +13,7 @@ const enumTypeMap = new Map();
  * @returns {T}
  * @template T
  */
-export function createEnumType(name, target) {
+export function createEnum(name, target) {
   const values = Object.keys(target)
     .filter(key => isNaN(Number(key))) // eslint-disable-line no-restricted-globals
     .reduce(
@@ -35,7 +35,7 @@ export function createEnumType(name, target) {
 
 export function getEnumType(typeKey, target, propertyKey) {
   if (!enumTypeMap.has(typeKey)) {
-    createEnumType(
+    createEnum(
       `${target.constructor.name}${propertyKey
         .charAt(0)
         .toUpperCase()}${propertyKey.slice(1)}Enum`,
