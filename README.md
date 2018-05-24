@@ -67,6 +67,8 @@ class Resource extends BaseResource {
 This example uses `request-promise`, `express`, `body-parser` and `apollo-server-express`.
 
 ```javascript
+import { type, field, arg, ID, Int, createSchema } from "pegasus-graphql";
+
 @type
 class Comic {
   @field(ID)
@@ -126,13 +128,16 @@ class XKCDQuery {
   }
 
   @field(Comic)
-  random() {
-    const { number } = this.comic();
+  async random() {
+    const { number } = await this.comic();
     return this.comic(Math.floor(Math.random() * number));
   }
 }
 
 const app = express();
 app.use("/gql", json(), graphqlExpress({ schema: createSchema(XKCDQuery) }));
-app.listen(8080);
+app.use(graphiqlExpress({ endpointURL: "/gql" }));
+app.listen(8080, () => {
+  console.log("Server listening on port 8080: http://localhost:8080");
+});
 ```
