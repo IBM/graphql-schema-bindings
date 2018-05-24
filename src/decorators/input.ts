@@ -4,7 +4,6 @@ import { getAllFields, setType } from "../lib/common";
 
 export default function input(target) {
   const meta = Metadata.for(target);
-  meta.input = true;
   const typeDef = new GraphQLInputObjectType({
     description: meta.description,
     fields: () => getAllFields(target.prototype),

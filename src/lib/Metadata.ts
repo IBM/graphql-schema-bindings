@@ -5,11 +5,10 @@ const CONTEXT = Symbol("CONTEXT");
 const DEFAULT_VALUE = Symbol("DEFAULT_VALUE");
 const DEPRECATED = Symbol("DEPRECATED");
 const DESC = Symbol("DESC");
-const FIELD = Symbol("FIELD");
 const FIELDS = Symbol("FIELDS");
-const INPUT = Symbol("INPUT");
 const NON_NULL = Symbol("NON_NULL");
 const TYPE = Symbol("TYPE");
+const TYPE_REF = Symbol("TYPE_REF");
 
 function argumentKey(propertyKey, index) {
   return `${propertyKey}.${index}`;
@@ -63,12 +62,6 @@ export default class Metadata {
   set description(value) {
     this.setValue(DESC, value);
   }
-  get field() {
-    return this.getValue(FIELD);
-  }
-  set field(value) {
-    this.setValue(FIELD, value);
-  }
   get fields() {
     return this.getValue(FIELDS);
   }
@@ -77,12 +70,6 @@ export default class Metadata {
   }
   get fieldType() {
     return this.getValue("design:type");
-  }
-  get input() {
-    return this.getValue(INPUT);
-  }
-  set input(value) {
-    this.setValue(INPUT, value);
   }
   get nonNull() {
     return this.getValue(NON_NULL);
@@ -101,6 +88,12 @@ export default class Metadata {
   }
   set type(value) {
     this.setValue(TYPE, value);
+  }
+  get typeRef() {
+    return this.getValue(TYPE_REF);
+  }
+  set typeRef(value) {
+    this.setValue(TYPE_REF, value);
   }
   getValue(key) {
     return this.key

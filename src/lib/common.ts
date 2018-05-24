@@ -1,21 +1,23 @@
 import {
   GraphQLBoolean,
-  GraphQLEnumType,
   GraphQLFloat,
   GraphQLID,
   GraphQLInt,
   GraphQLSchema,
-  GraphQLString
+  GraphQLString,
+  GraphQLList,
+  GraphQLNonNull
 } from "graphql";
 import Metadata from "./Metadata";
+import { getEnumType } from "./enum";
 
 const outputTypes: any[] = [];
 
 const typeMap = new Map();
 
-export class ID {}
-export class Int {}
-export class Float {}
+export class ID extends String {}
+export class Int extends Number {}
+export class Float extends Number {}
 
 typeMap.set(Boolean, GraphQLBoolean);
 typeMap.set(GraphQLBoolean, GraphQLBoolean);
@@ -30,7 +32,6 @@ typeMap.set(Number, GraphQLFloat);
 typeMap.set(String, GraphQLString);
 
 const interfaceTypeMap = new Map();
-const enumTypeMap = new Map();
 
 export function isClass(outputType) {
   return !!(typeof outputType === "function" && outputType.name);
@@ -51,12 +52,77 @@ export function isEnumType(inputType) {
   );
 }
 
+function getField(target, propertyKey) {
+  const metaField = Metadata.for(target, propertyKey);
+  const typeRef = metaField.typeRef;
+  let typeKey = isThunk(typeRef) ? typeRef() : typeRef;
+  if (!typeKey) {
+    typeKey = metaField.returnType || metaField.fieldType;
+  }
+  let isList;
+  if (Array.isArray(typeKey)) {
+    isList = true;
+    typeKey = typeKey[0];
+  }
+  let returnType = getGraphQLType(typeKey, target, propertyKey);
+  if (returnType === undefined) {
+    throw new Error(
+      `No type defined for ${target.constructor.name}.${propertyKey}`
+    );
+  }
+  if (isList) {
+    returnType = new GraphQLList(returnType);
+  }
+  if (metaField.nonNull) {
+    returnType = new GraphQLNonNull(returnType);
+  }
+  return {
+    args: metaField.args,
+    deprecationReason: metaField.deprecated,
+    description: metaField.description,
+    type: returnType,
+    ...(Metadata.for(target.constructor).type
+      ? {
+          resolve: async (root, args, globalContext) => {
+            let source = root;
+            if (root === undefined) {
+              source = new target.constructor();
+            }
+            if (!(source instanceof target.constructor)) {
+              throw new Error(
+                `Expecting source to be type ${
+                  target.constructor.name
+                } but received ${source}`
+              );
+            }
+            const contextFieldName = Metadata.for(target).context;
+            if (contextFieldName) {
+              source[contextFieldName] = globalContext;
+            }
+            let result = await source[propertyKey];
+            if (typeof result === "function") {
+              const params: any[] = [];
+              Object.keys(args).forEach(param => {
+                params[getParameterIndex(result, param)] = args[param];
+              });
+              if (metaField.context !== undefined) {
+                params[metaField.context] = globalContext;
+              }
+              result = await result.apply(source, params);
+            }
+            return result;
+          }
+        }
+      : {})
+  };
+}
+
 export function getOwnFields(target) {
   const { fields } = Metadata.for(target);
   return (
     fields &&
     fields.reduce((all, propertyKey) => {
-      const thunk = Metadata.for(target, propertyKey).field;
+      const thunk = () => getField(target, propertyKey);
       return {
         ...all,
         ...(thunk ? { [propertyKey]: thunk() } : {})
@@ -93,56 +159,9 @@ export function getParameterName(method, index) {
   return (matches[1] || "").split(",")[index].trim();
 }
 
-export function addField(target, propertyKey) {
-  const meta = Metadata.for(target);
-  if (!meta.fields) {
-    meta.fields = [];
-  }
-  meta.fields.push(propertyKey);
-}
-
-/**
- * Enums are usually created automatically; however, the name
- * will be generated as TypeName + FieldName + 'Enum' for the first
- * instance referencing the enum.
- * This may not match the name in the code so you can call
- * this function directly to define the enum before it is used.
- * @param {string} name
- * @param {T} target
- * @returns {T}
- * @template T
- */
-export function createEnumType(name, target) {
-  const values = Object.keys(target)
-    .filter(key => isNaN(Number(key))) // eslint-disable-line no-restricted-globals
-    .reduce(
-      (all, key) => ({
-        ...all,
-        [key]: {
-          value: target[key]
-        }
-      }),
-      {}
-    );
-  const typeDef = new GraphQLEnumType({
-    name,
-    values
-  });
-  enumTypeMap.set(target, typeDef);
-  return target;
-}
-
 export function getGraphQLType(typeKey, target, propertyKey) {
   if (isEnumType(typeKey)) {
-    if (!enumTypeMap.has(typeKey)) {
-      createEnumType(
-        `${target.constructor.name}${propertyKey
-          .charAt(0)
-          .toUpperCase()}${propertyKey.slice(1)}Enum`,
-        typeKey
-      );
-    }
-    return enumTypeMap.get(typeKey);
+    return getEnumType(typeKey, target, propertyKey);
   }
   return (
     (isClass(typeKey) && interfaceTypeMap.get(typeKey)) || typeMap.get(typeKey)
