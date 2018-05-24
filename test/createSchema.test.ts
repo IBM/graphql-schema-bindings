@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { createSchema, field, type } from "../src";
 
 describe("Test createSchema", () => {
-  it.skip("should throw if a field does not have an output type", () => {
+  it("should throw if a field does not have an output type", () => {
     @type
     class NullTypeQuery {
       @field()
