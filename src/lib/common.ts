@@ -85,15 +85,8 @@ function getField(target, propertyKey) {
       ? {
           resolve: async (root, args, globalContext) => {
             let source = root;
-            if (root === undefined) {
-              source = new target.constructor();
-            }
-            if (!(source instanceof target.constructor)) {
-              throw new Error(
-                `Expecting source to be type ${
-                  target.constructor.name
-                } but received ${source}`
-              );
+            if (!(root instanceof target.constructor)) {
+              source = new target.constructor(root);
             }
             const contextFieldName = Metadata.for(target).context;
             if (contextFieldName) {
