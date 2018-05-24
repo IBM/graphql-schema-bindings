@@ -7,7 +7,7 @@
     "build": "tsc",
     "precommit": "lint-staged",
     "prepublish": "tsc",
-    "test": "nyc mocha --require=ts-node/register test/**/*.ts"
+    "test": "nyc mocha --require=ts-node/register \"test/**/*.ts\""
   },
   "lint-staged": {
     "*.ts": [
