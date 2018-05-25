@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { type, field, createSchema } from "../src";
-import TestServer from "./TestServer";
+import { type, field, createSchema } from "../../src";
+import TestServer from "../TestServer";
 
 describe("Test enum types", () => {
   it("should be able to return an enum type", async () => {

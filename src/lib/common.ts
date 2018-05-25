@@ -138,7 +138,7 @@ export function getAllFields(target) {
  */
 const paramsRegex = /\(([\w\s,]*)\)/;
 
-function getParams(method) {
+function getParams(method: Function) {
   const [, result = ""] = paramsRegex.exec(method.toString()) || [];
   return result.split(",");
 }

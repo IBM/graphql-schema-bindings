@@ -16,6 +16,20 @@ describe("Test common.", () => {
     expect(getParameterIndex(function() {}, "value")).to.equal(-1);
   });
 
+  it("getParameterIndex should return -1 if not a function", () => {
+    expect(getParameterIndex(() => {}, "value")).to.equal(-1);
+  });
+
+  it("getParameterIndex should handle default values", () => {
+    expect(
+      getParameterIndex(function(
+        id = { name: "test", open: "common" },
+        name = "test"
+      ) {},
+      "name")
+    ).to.equal(1);
+  });
+
   it("getParamterName should return name of parameter", () => {
     expect(getParameterName(function(id, name) {}, 1)).to.equal("name");
   });
