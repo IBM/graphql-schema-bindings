@@ -115,10 +115,9 @@ export function getOwnFields(target) {
   return (
     fields &&
     fields.reduce((all, propertyKey) => {
-      const thunk = () => getField(target, propertyKey);
       return {
         ...all,
-        ...(thunk ? { [propertyKey]: thunk() } : {})
+        ...{ [propertyKey]: getField(target, propertyKey) }
       };
     }, {})
   );
@@ -139,17 +138,19 @@ export function getAllFields(target) {
  */
 const paramsRegex = /\(([\w\s,]*)\)/;
 
-export function getParameterIndex(method, param) {
-  const matches = paramsRegex.exec(method.toString()) || [];
-  return (matches[1] || "")
-    .split(",")
+function getParams(method) {
+  const [, result = ""] = paramsRegex.exec(method.toString()) || [];
+  return result.split(",");
+}
+
+export function getParameterIndex(method: Function, param: string) {
+  return getParams(method)
     .map(name => name.trim())
     .indexOf(param);
 }
 
-export function getParameterName(method, index) {
-  const matches = paramsRegex.exec(method.toString()) || [];
-  return (matches[1] || "").split(",")[index].trim();
+export function getParameterName(method: Function, index: number) {
+  return getParams(method)[index].trim();
 }
 
 export function getGraphQLType(typeKey, target, propertyKey) {
