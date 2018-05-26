@@ -17,7 +17,8 @@ describe("Test common.", () => {
   });
 
   it("getParameterIndex should return -1 if not a function", () => {
-    expect(getParameterIndex(() => {}, "value")).to.equal(-1);
+    // @ts-ignore: testing non-function
+    expect(getParameterIndex("", "value")).to.equal(-1);
   });
 
   it("getParameterIndex should handle default values", () => {

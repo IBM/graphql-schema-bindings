@@ -1,8 +1,7 @@
 {
   "name": "pegasus-graphql",
   "version": "1.0.0",
-  "description":
-    "an opinionated graphql server format for combining schema and implementation",
+  "description": "an opinionated graphql server format for combining schema and implementation",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -11,14 +10,24 @@
     "test": "jest --coverage"
   },
   "lint-staged": {
-    "*.ts": ["prettier --write", "git add"]
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 90,
