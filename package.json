@@ -62,7 +62,9 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.12",
+    "reflect-metadata": "^0.1.12"
+  },
+  "peerDependencies": {
     "graphql": "^0.13.2"
   }
 }
