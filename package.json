@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "an opinionated graphql server format for combining schema and implementation",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "precommit": "lint-staged",
