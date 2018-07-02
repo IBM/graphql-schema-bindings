@@ -1,6 +1,6 @@
 <div align="center">
   <img src="docs/assets/pegasus-logo.png?raw=true" alt="Pegasus GraphQL Logo" width="150" />
-  <h1>Pegasus Graphql</h1>
+  <h1>Pegasus GraphQL</h1>
 </div>
 
 Pegasus is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
