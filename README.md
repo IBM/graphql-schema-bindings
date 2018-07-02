@@ -1,4 +1,8 @@
-# Pegasus GraphQL
+<p align="center">
+
+  ![Pegasus Logo](docs/assets/pegasus-logo.png?raw=true)
+  # Pegasus GraphQL
+</p>
 
 Pegasus is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
 
