@@ -1,9 +1,10 @@
 <div align="center">
   <img src="docs/assets/pegasus-logo.png?raw=true" alt="Pegasus GraphQL Logo" width="150" />
   
-  ![travis build badge](https://travis.ibm.com/cmcook/pegasus-graphql.svg?token=EqsaqdToJAp6dFxakDCK&branch=master)
 
   <h1>Pegasus GraphQL</h1>
+
+  ![travis build badge](https://travis.ibm.com/cmcook/pegasus-graphql.svg?token=EqsaqdToJAp6dFxakDCK&branch=master)
 </div>
 
 Pegasus is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
