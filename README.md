@@ -1,9 +1,6 @@
-<div align="center">
-  <h1>GraphQL Schema Bindings</h1>
+# GraphQL Schema Bindings
 
 ![travis build badge](https://travis.ibm.com/cmcook/pegasus-graphql.svg?token=EqsaqdToJAp6dFxakDCK&branch=master)
-
-</div>
 
 GraphQL Schema Bindings is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
 
