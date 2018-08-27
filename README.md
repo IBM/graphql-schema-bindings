@@ -1,15 +1,13 @@
 <div align="center">
-  <img src="docs/assets/pegasus-logo.png?raw=true" alt="Pegasus GraphQL Logo" width="150" />
-  
+  <h1>GraphQL Schema Bindings</h1>
 
-  <h1>Pegasus GraphQL</h1>
+![travis build badge](https://travis.ibm.com/cmcook/pegasus-graphql.svg?token=EqsaqdToJAp6dFxakDCK&branch=master)
 
-  ![travis build badge](https://travis.ibm.com/cmcook/pegasus-graphql.svg?token=EqsaqdToJAp6dFxakDCK&branch=master)
 </div>
 
-Pegasus is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
+GraphQL Schema Bindings is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
 
-Pegasus uses decorators to define the necessary metadata to map your native types to GraphQL types.
+GraphQL Schema Bindings uses decorators to define the necessary metadata to map your native types to GraphQL types.
 
 Use `@type` to mark a class to be exported to GraphQL.
 
@@ -74,7 +72,14 @@ class Resource extends BaseResource {
 This example uses `request-promise`, `express`, `body-parser` and `apollo-server-express`.
 
 ```javascript
-import { type, field, arg, ID, Int, createSchema } from "pegasus-graphql";
+import {
+  type,
+  field,
+  arg,
+  ID,
+  Int,
+  createSchema
+} from "graphql-schema-bindings";
 
 @type
 class Comic {
