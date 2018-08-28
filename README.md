@@ -1,6 +1,7 @@
 # GraphQL Schema Bindings
 
-![travis build badge](https://travis.ibm.com/cmcook/pegasus-graphql.svg?token=EqsaqdToJAp6dFxakDCK&branch=master)
+[![Build Status](https://travis-ci.org/IBM/graphql-schema-bindings.svg?branch=master)](https://travis-ci.org/IBM/graphql-schema-bindings)
+[![Coverage Status](https://coveralls.io/repos/github/IBM/graphql-schema-bindings/badge.svg?branch=master)](https://coveralls.io/github/IBM/graphql-schema-bindings?branch=master)
 
 GraphQL Schema Bindings is a flexible and scalable GraphQL schema generator that exposes common object oriented patterns to your GraphQL server.
 
