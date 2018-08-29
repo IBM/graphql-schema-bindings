@@ -1,4 +1,11 @@
+.nyc_output/
+.vscode/
+coverage/
+docs/
+examples/
 src/
 test/
-.vscode/
-.nyc_output/
+
+.gitattributes
+.travis.yml
+tsconfig*

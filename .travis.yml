@@ -1,8 +1,5 @@
 language: node_js
 node_js:
   - "node"
-install:
-  - npm install
-  - npm install --no-save graphql
 after_script:
   - npm run coveralls
