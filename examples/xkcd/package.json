@@ -8,8 +8,9 @@
   "dependencies": {
     "apollo-server": "^2.0.5",
     "axios": "^0.18.0",
-    "graphql-schema-bindings": "file:../..",
+    "graphql": "^0.13.2",
+    "graphql-schema-bindings": "^0.9.0",
     "ts-node": "^7.0.1",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.3"
   }
 }

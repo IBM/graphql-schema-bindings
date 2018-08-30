@@ -45,6 +45,11 @@ class Comic {
     ).toLocaleDateString();
   }
 
+  @field(String)
+  get link() {
+    return `https://xkcd.com/${this.number}`;
+  }
+
   constructor(data) {
     this.data = data;
   }
