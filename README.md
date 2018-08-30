@@ -1,5 +1,6 @@
 # GraphQL Schema Bindings
 
+![npm](https://img.shields.io/npm/v/graphql-schema-bindings.svg)
 [![Build Status](https://travis-ci.org/IBM/graphql-schema-bindings.svg?branch=master)](https://travis-ci.org/IBM/graphql-schema-bindings)
 [![Coverage Status](https://coveralls.io/repos/github/IBM/graphql-schema-bindings/badge.svg?branch=master)](https://coveralls.io/github/IBM/graphql-schema-bindings?branch=master)
 
