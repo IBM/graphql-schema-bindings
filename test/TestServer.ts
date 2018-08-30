@@ -1,14 +1,15 @@
 import express from "express";
-import { json } from "body-parser";
-import { graphqlExpress } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
 import supertest, { SuperTest, Test } from "supertest";
 
 export default class TestServer {
   app: SuperTest<Test>;
+  server: ApolloServer;
 
   constructor(schema, context?) {
     const app = express();
-    app.use("/gql", json(), graphqlExpress({ schema, context }));
+    this.server = new ApolloServer({ schema, context });
+    this.server.applyMiddleware({ app, path: "/gql" });
     this.app = supertest(app);
   }
 

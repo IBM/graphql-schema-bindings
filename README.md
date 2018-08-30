@@ -71,6 +71,8 @@ class Resource extends BaseResource {
 This example uses `request-promise`, `express`, `body-parser` and `apollo-server-express`.
 
 ```javascript
+import { ApolloServer } from "apollo-server";
+import axios from "axios";
 import {
   type,
   field,
@@ -126,10 +128,7 @@ class XKCDQuery {
   @field(Comic)
   async comic(@arg(ID) id) {
     const url = id ? `/${id}` : "";
-    const data = await request(`${url}/info.0.json`, {
-      baseUrl: "https://xkcd.com",
-      json: true
-    });
+    const { data } = await axios.get(`https://xkcd.com${url}/info.0.json`);
     return new Comic(data);
   }
 
@@ -145,10 +144,6 @@ class XKCDQuery {
   }
 }
 
-const app = express();
-app.use("/gql", json(), graphqlExpress({ schema: createSchema(XKCDQuery) }));
-app.use(graphiqlExpress({ endpointURL: "/gql" }));
-app.listen(8080, () => {
-  console.log("Server listening on port 8080: http://localhost:8080");
-});
+const server = new ApolloServer({ schema: createSchema(XKCDQuery) });
+server.listen().then(({ url }) => console.log(`Server ready at ${url}`));
 ```
