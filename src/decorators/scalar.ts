@@ -9,13 +9,12 @@ import {
 } from "graphql";
 import { setType } from "../lib/common";
 import Metadata from "../lib/Metadata";
-import Maybe from "../../node_modules/@types/graphql/tsutils/Maybe";
 
 export interface ScalarTarget {
   new (...args: any[]): any;
   serialize(value: any): any;
   parseValue(value: any): any;
-  parseLiteral?(astNode: ValueNode, variables: Maybe<{ [key: string]: any }>);
+  parseLiteral?(astNode: ValueNode, variables?: { [key: string]: any });
 }
 
 function isValueNode(
