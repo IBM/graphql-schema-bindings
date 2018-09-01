@@ -13,7 +13,7 @@
   "scripts": {
     "build": "tsc",
     "precommit": "lint-staged",
-    "prepublish": "tsc",
+    "prepare": "tsc",
     "test": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
@@ -69,6 +69,6 @@
     "reflect-metadata": "^0.1.12"
   },
   "peerDependencies": {
-    "graphql": "^0.13.2"
+    "graphql": ">=0.10.0"
   }
 }
