@@ -4,13 +4,14 @@ import {
   setType,
   setInterface,
   getType,
-  addOutputType
+  addOutputType,
+  getParent
 } from "../lib/common";
 import { GraphQLObjectType, GraphQLInterfaceType } from "graphql";
 
 export default function type(target) {
   const meta = Metadata.for(target);
-  const parent = getType(Object.getPrototypeOf(target));
+  const parent = getParent(target);
   const interfaces = parent ? [...parent.getInterfaces()] : [];
   meta.type = true;
 

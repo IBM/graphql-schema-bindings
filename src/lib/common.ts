@@ -52,6 +52,20 @@ export function isEnumType(inputType) {
   );
 }
 
+/**
+ * In order to allow mixin types we need to be able to skip
+ * an entry in the prototype chain.
+ * e.g. MyType -> MixinType* -> MyBaseType
+ * *: not exported by GraphQL
+ */
+export function getParent(target) {
+  let parent = Object.getPrototypeOf(target);
+  while (parent !== Object.prototype && !typeMap.has(parent)) {
+    parent = Object.getPrototypeOf(parent);
+  }
+  return typeMap.get(parent);
+}
+
 function getField(target, propertyKey) {
   const metaField = Metadata.for(target, propertyKey);
   const typeRef = metaField.typeRef;

@@ -25,12 +25,26 @@ describe("Test @type", () => {
   it("should implement inherited interfaces", async () => {
     @type
     class ParentType {
-      @field(ID) id;
+      @field(ID)
+      id;
     }
 
+    /**
+     * It should be able to skip parent types to resolve
+     * applicable interfaces.
+     */
+    const _MixinClass = BaseClass => {
+      class MixinClass extends BaseClass {
+        @field()
+        testMixin?: string;
+      }
+      return MixinClass;
+    };
+
     @type
-    class ChildType extends ParentType {
-      @field() name?: string;
+    class ChildType extends _MixinClass(ParentType) {
+      @field()
+      name?: string;
     }
 
     @type
