@@ -69,7 +69,7 @@ class Resource extends BaseResource {
 
 ## XKCD Example
 
-This example uses `request-promise`, `express`, `body-parser` and `apollo-server-express`.
+With this schema you are able to retrieve details for [XKCD](https://xkcd.com) comics. You can get the latest comic, a random comic, or a comic by ID (number).
 
 ```javascript
 import { ApolloServer } from "apollo-server";
