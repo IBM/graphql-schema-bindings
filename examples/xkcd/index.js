@@ -1,16 +1,21 @@
 import { ApolloServer } from "apollo-server";
 import axios from "axios";
 import {
-  type,
-  field,
   arg,
+  context,
+  createSchema,
+  field,
   ID,
   Int,
-  createSchema
+  type
 } from "graphql-schema-bindings";
 
 @type
 class Comic {
+  /** @type {XKCDQuery} */
+  @context
+  context;
+
   @field(ID)
   get id() {
     return this.number;
@@ -50,6 +55,16 @@ class Comic {
     return `https://xkcd.com/${this.number}`;
   }
 
+  @field(Comic)
+  async previous() {
+    return this.context.comic(this.number - 1);
+  }
+
+  @field(Comic)
+  async next() {
+    return this.context.comic(this.number + 1);
+  }
+
   constructor(data) {
     this.data = data;
   }
@@ -76,5 +91,8 @@ class XKCDQuery {
   }
 }
 
-const server = new ApolloServer({ schema: createSchema(XKCDQuery) });
+const server = new ApolloServer({
+  schema: createSchema(XKCDQuery),
+  context: new XKCDQuery()
+});
 server.listen().then(({ url }) => console.log(`Server ready at ${url}`));
