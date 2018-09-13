@@ -86,7 +86,7 @@ Now press the play button in the middle of the screen to execute the call.  You 
 
 ## How it works
 
-Our sample creates a class called `Comic` to define the comic we are looking for.  It takes an ID of the comic that we're looking for.  We then specify what fields we want back about our comic.  In this case we are asking for the `id` of the comic, the `title` of the comic, the URL to the `image` of the comic, and the `transcript` for the comic which is the image tooltip text.  All of these fields are optional.  
+Our sample creates a class called `Comic` to define the comic we are looking for.  It takes an ID of the comic that we're looking for.  We then specify what fields we want back about our comic.  In this case we are asking for the `id` of the comic, the `title` of the comic, the URL to the `image` of the comic, and the `transcript` for the comic which shows a transcript of the text of the comic.  All of these fields are optional.  
 
 ### Let's look at the code
 

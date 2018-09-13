@@ -33,6 +33,11 @@ class Comic {
   get title() {
     return this.data.title;
   }
+  
+  @field(String)
+  get alt() {
+    return this.data.alt
+  }
 
   @field(String)
   get image() {
