@@ -10,6 +10,9 @@ import {
   type
 } from "graphql-schema-bindings";
 
+/**
+ * Our Comic class defines all of the fields that our comic has.
+ */
 @type
 class Comic {
   /** @type {XKCDQuery} */
@@ -55,11 +58,17 @@ class Comic {
     return `https://xkcd.com/${this.number}`;
   }
 
+  /**
+   * This field returns a comics object that represents the previous comic.
+   */
   @field(Comic)
   async previous() {
     return this.context.comic(this.number - 1);
   }
 
+  /**
+   * This field returns a comics object that represents the next comic.
+   */
   @field(Comic)
   async next() {
     return this.context.comic(this.number + 1);
@@ -70,6 +79,9 @@ class Comic {
   }
 }
 
+/**
+ * This is our query class.  It is the entry point for all queries to our application.
+ */
 @type
 class XKCDQuery {
   @field(Comic)
@@ -91,6 +103,9 @@ class XKCDQuery {
   }
 }
 
+/**
+ * Now we are ready to create our ApolloServer and start listening for requests.
+ */
 const server = new ApolloServer({
   schema: createSchema(XKCDQuery),
   context: new XKCDQuery()
