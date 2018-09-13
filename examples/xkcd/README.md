@@ -42,7 +42,7 @@ npm install
 npm run start
 ```
 
-When the second command completes go to the follow URL with your favorite browser:  [http://localhost:4000](http://localhost:4000).  This will show you the GraphQL playground for our service.  We can use this playground to make queries against our service.
+When the second command completes go to the following URL with your favorite browser:  [http://localhost:4000](http://localhost:4000).  This will show you the GraphQL playground for our service.  We can use this playground to make queries against our service.
 
 The first step is to enter our query in the upper-left panel like this:
 
