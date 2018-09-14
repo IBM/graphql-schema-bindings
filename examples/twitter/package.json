@@ -1,0 +1,22 @@
+{
+  "name": "twitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dotenv": "^4.0.3",
+    "apollo-server": "^2.0.7",
+    "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
+    "graphql": "^14.0.2",
+    "graphql-schema-bindings": "^0.9.3",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  }
+}
