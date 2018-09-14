@@ -177,10 +177,6 @@ class NameInput {
 
 This will show up in the GraphQL schema as an input to a given mutation.
 
-## @optional
-
-This decorator indicates that the field is option in the GraphQL schema.
-
 ## @required
 
 This decorator indicates that the field is required in the GraphQL schema.
