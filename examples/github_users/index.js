@@ -41,8 +41,7 @@ class User {
 class UserQuery {
   @field(User)
   async user(@arg(ID) id) {
-    const url = id ? `/${id}` : "";
-    const { data } = await axios.get(`https://api.github.com/users${url}`);
+    const { data } = await axios.get(`https://api.github.com/users/${id}`);
     return new User(data);
   }
 }
