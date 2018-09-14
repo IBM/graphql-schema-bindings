@@ -72,7 +72,7 @@ The mutation is the same for all users and it takes query variables to specify t
 
 ```javascript
 {
-  "id": 4,
+  "id": 3,
   "name": "Dave"
 }
 ```
@@ -83,7 +83,7 @@ Our service will return our new user like this:
 {
   "data": {
     "add": {
-      "id": "4",
+      "id": "3",
       "name": "Dave"
     }
   }
@@ -104,6 +104,6 @@ This is a generic delete mutation.  Let's use the query variables to delete Dave
 
 ```javascript
 {
-  "id": 4
+  "id": 3
 }
 ```

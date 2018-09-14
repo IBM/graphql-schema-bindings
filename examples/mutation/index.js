@@ -23,9 +23,6 @@ const users = [];
  */
 @type
 class User {
-  @context
-  context;
-
   @field(ID)
   get id() {
     return this.data.id;
@@ -47,17 +44,17 @@ class User {
  * our users array.
  */
 users.push(new User({
-  id: 1,
+  id: 0,
   name: 'alice',
 }));
 
 users.push(new User({
-  id: 2,
+  id: 1,
   name: 'bob',
 }));
 
 users.push(new User({
-  id: 3,
+  id: 2,
   name: 'carol',
 }));
 
@@ -67,13 +64,10 @@ users.push(new User({
  */
 @type
 class UserQuery {
-  @context
-  context;
-  
   @field(User)
   @description('Get a specific user.')
   user(@arg(ID) id) {
-    return new User(users[id]);
+    return users[id];
   }
   
   @field([User])
