@@ -15,9 +15,6 @@ import {
  */
 @type
 class User {
-  @context
-  context;
-
   @field(ID)
   get id() {
     return this.data.id;
