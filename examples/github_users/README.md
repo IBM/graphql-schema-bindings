@@ -30,7 +30,7 @@ query User($id: ID) {
 }
 ```
 
-Then expand the `QUERY VARIABLES` section in the bottom right corner and add a query like this:
+Then expand the `QUERY VARIABLES` section in the bottom left corner and add a query like this:
 
 ```javascript
 {
