@@ -51,13 +51,13 @@ class UserQuery {
 
 And that's it.  Run this sample yourself here:  [GitHub users sample](examples/github_users)
 
-# Understanding schema types
+# Understanding Decorators
 
-Schema types work like decorators to help your functions.  They all have the format of `@<some type>` before a function in your code.
+Decorators to help describe your functions and arguments.  They all have the format of `@<some type>` before a function in your code.
 
 ## @type
 
-Use `@type` to mark a class to be exported to GraphQL.  This indicates that a class represents data that will be either returned from or used as an input to GraphQL.
+Use `@type` to mark a class as an output type in the GraphQL schema.  This indicates that a class represents data that will be either returned from GraphQL.
 
 ```javascript
 @type
@@ -118,6 +118,16 @@ class Resource extends BaseResource {
 ```
 
 The field decorator takes an argument for the type of field.  The type can be one of the default supported types like `String`, `ID`, `Int`, or `Float` or it can be any object you define.  The schema bindings library can automatically convert inputs to these types.
+
+You can also define an array type in the field decorator like this:
+
+```javascript
+@field([User])
+@description('Get list of users.')
+users() {
+  return users;
+}
+```
 
 ## @context
 
