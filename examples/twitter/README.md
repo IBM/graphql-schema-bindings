@@ -21,14 +21,13 @@ TWITTER_KEY=<key from previous step>
 TWITTER_SECRET=<secret from previous step>
 ```
 
-Then navigate to the `examples/twitter` directory and running the following commands:
+Then navigate to the `examples/twitter` directory and run the following command:
 
 ```
-npm install
 npm start
 ```
 
-When the second command completes go to the following URL with your favorite browser: [http://localhost:4000](http://localhost:4000). This will show you the GraphQL playground for our service. We can use this playground to make queries against our service.
+When this command completes go to the following URL with your favorite browser: [http://localhost:4000](http://localhost:4000). This will show you the GraphQL playground for our service. We can use this playground to make queries against our service.
 
 ## Getting a user
 
@@ -47,32 +46,32 @@ Now that our server is running, let's get the details for a Twitter user. Enter 
 }
 ```
 
-Pressing the play button in the center of the screen should fetch information from the Twitter API similar to the following image.
+Pressing the play button in the center of the screen will fetch information from the Twitter API similar to the following image.
 
 ![Apollo query with example output.](./apollo_example.png)
 
 ## Managing your solution
 
-This example splits its output, input, and query types across many files. Types can be defined in any file.
+This example splits its output, input, and query types across multiple files. Types can be defined in any file.
 
-This example defines each type in its own file with the same name. This can often be a good approach to managing your output types.
+This example defines each type in its own file with the same name. This is a good approach to managing your output types.
 
 The output types defined for this solution are:
 
-- User (_types/User.ts_): an output type representing a Twitter user.
-- Tweet (_types/Tweet.ts_): an output type representing a Tweet object.
-- Retweet (_types/Retweet.ts_): an output type representing a Retweet object.
+- User ([types/User.ts](types/User.ts)): an output type representing a Twitter user.
+- Tweet ([types/Tweet.ts](types/Tweet.ts)): an output type representing a Tweet object.
+- Retweet ([types/Retweet.ts](types/Retweet.ts)): an output type representing a Retweet object.
 
 The input types defined for this solution are:
 
-- PaginationInput (_inputs/PaginationInput.ts_): common input fields for Twitter pagination.
-- SearchInput (_inputs/SearchInput.ts_): input fields for basic search.
-- TimelineInput (_inputs/TimelineInput.ts_): input fields for user timelines.
+- PaginationInput ([inputs/PaginationInput.ts](inputs/PaginationInput.ts)): common input fields for Twitter pagination.
+- SearchInput ([inputs/SearchInput.ts](inputs/SearchInput.ts)): input fields for basic search.
+- TimelineInput ([inputs/TimelineInput.ts](inputs/TimelineInput.ts)): input fields for user timelines.
 
 This solution also has some helper functions that are kept in a _lib_ folder:
 
-- getToken (_lib/getToken.ts_): fetch an access token for the Twitter API
-- makeTweet (_lib/makeTweet.ts_): this is a factory function to generate the correct output Tweet type (Retweet or Tweet) based on the data returned from the API.
+- getToken ([lib/getToken.ts](lib/getToken.ts)): fetch an access token for the Twitter API
+- makeTweet ([lib/makeTweet.ts](lib/makeTweet.ts)): this is a factory function to generate the correct output Tweet type (Retweet or Tweet) based on the data returned from the API.
 
 ## @context argument vs @context field
 
@@ -109,4 +108,4 @@ We can query for retweet information like so:
 
 This will show a list of retweets: who and when retweeted it and the original tweet (who, when, what, and how many retweets).
 
-The **retweet** field is only available to the _Retweet_ type. The _Retweet_ type has all of the fields that the _Tweet_ type has and can be returned anywhere that a _Tweet_ can be returned. It also shares the functionality of the _Tweet_ type by inheritance.
+The `retweet` field is only available to the `Retweet` type. The `Retweet` type has all of the fields that the `Tweet` type has and can be returned anywhere that a `Tweet` can be returned. It also shares the functionality of the `Tweet` type by inheritance.
