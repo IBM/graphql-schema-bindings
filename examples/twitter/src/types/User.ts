@@ -7,11 +7,13 @@ import {
   type,
   description
 } from "graphql-schema-bindings";
-import Tweet, { ITweet } from "./Tweet";
-import { TwitterContext } from "./Twitter";
+import Tweet from "./Tweet";
+import { TwitterContext } from "../Twitter";
 import TimelineInput from "../inputs/TimelineInput";
-import makeTweet from "../lib/makeTweet";
 
+/**
+ * Interface for data returned by the API.
+ */
 export interface IUser {
   id_str: string;
   screen_name: string;
@@ -23,6 +25,9 @@ export interface IUser {
 
 @type
 export default class User {
+  @context
+  private context!: TwitterContext;
+
   @field(ID)
   id: string;
 
@@ -46,16 +51,13 @@ export default class User {
   async timeline(
     @arg(TimelineInput)
     @defaultValue(new TimelineInput())
-    args: Partial<TimelineInput>,
-    @context context: TwitterContext
-  ) {
-    // args is a JSON object so map it to an instance of TimelineInput
-    const input = new TimelineInput(args);
-    const { data } = await context.client.get<ITweet[]>(
-      "/statuses/user_timeline",
-      { params: { screen_name: this.screen_name, ...input.toParams() } }
+    input: Partial<TimelineInput>
+  ): Promise<Tweet[]> {
+    return this.context.twitter.user_timeline(
+      this.screen_name,
+      input,
+      this.context
     );
-    return data.map(makeTweet);
   }
 
   /**

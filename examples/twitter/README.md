@@ -29,3 +29,84 @@ npm start
 ```
 
 When the second command completes go to the following URL with your favorite browser: [http://localhost:4000](http://localhost:4000). This will show you the GraphQL playground for our service. We can use this playground to make queries against our service.
+
+## Getting a user
+
+Now that our server is running, let's get the details for a Twitter user. Enter the following query in the query section of the playground UI.
+
+```graphql
+{
+  user(screen_name: "apollographql") {
+    name
+    statuses_count
+    timeline {
+      text
+      created_at
+    }
+  }
+}
+```
+
+Pressing the play button in the center of the screen should fetch information from the Twitter API similar to the following image.
+
+![Apollo query with example output.](./apollo_example.png)
+
+## Managing your solution
+
+This example splits its output, input, and query types across many files. Types can be defined in any file.
+
+This example defines each type in its own file with the same name. This can often be a good approach to managing your output types.
+
+The output types defined for this solution are:
+
+- User (_types/User.ts_): an output type representing a Twitter user.
+- Tweet (_types/Tweet.ts_): an output type representing a Tweet object.
+- Retweet (_types/Retweet.ts_): an output type representing a Retweet object.
+
+The input types defined for this solution are:
+
+- PaginationInput (_inputs/PaginationInput.ts_): common input fields for Twitter pagination.
+- SearchInput (_inputs/SearchInput.ts_): input fields for basic search.
+- TimelineInput (_inputs/TimelineInput.ts_): input fields for user timelines.
+
+This solution also has some helper functions that are kept in a _lib_ folder:
+
+- getToken (_lib/getToken.ts_): fetch an access token for the Twitter API
+- makeTweet (_lib/makeTweet.ts_): this is a factory function to generate the correct output Tweet type (Retweet or Tweet) based on the data returned from the API.
+
+## @context argument vs @context field
+
+This example binds the context as both an argument (in Twitter.ts) and as a field (in User.ts).
+
+The context is bound during field resolution. This example uses the Twitter class as both a root query and as a context field to lend its functionality to other classes. In order to provide the context to the methods of the context Twitter instance, we accept them as function arguments and pass them from the consumers (i.e. User.timeline). @context bound fields and arguments are only assigned during GraphQL field resolution.
+
+## Inheritance
+
+This example shows one of the great benefits of `graphql-schema-bindings`: inheritance. A Retweet is a special kind of Tweet that includes information about the original Tweet.
+
+We can query for retweet information like so:
+
+```graphql
+{
+  search(input: { query: "#GraphQL filter:nativeretweets" }) {
+    created_at
+    user {
+      screen_name
+    }
+    ... on Retweet {
+      retweet {
+        text
+        created_at
+        retweet_count
+        user {
+          screen_name
+        }
+      }
+    }
+  }
+}
+```
+
+This will show a list of retweets: who and when retweeted it and the original tweet (who, when, what, and how many retweets).
+
+The **retweet** field is only available to the _Retweet_ type. The _Retweet_ type has all of the fields that the _Tweet_ type has and can be returned anywhere that a _Tweet_ can be returned. It also shares the functionality of the _Tweet_ type by inheritance.

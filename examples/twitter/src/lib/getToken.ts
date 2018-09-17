@@ -2,7 +2,10 @@ import axios from "axios";
 
 let token: string;
 
-export default async function getAccessToken() {
+/**
+ * Get an access token for the Twitter API
+ */
+export default async function getToken(): Promise<string> {
   if (!token) {
     const { TWITTER_KEY, TWITTER_SECRET } = process.env;
     const {

@@ -1,5 +1,5 @@
 import User, { IUser } from "./User";
-import { field, type, ID } from "graphql-schema-bindings";
+import { field, type, ID, description } from "graphql-schema-bindings";
 
 /**
  * Interface for the API response data.
@@ -15,6 +15,7 @@ export interface ITweet {
 }
 
 @type
+@description("A Twitter status update (tweet)")
 export default class Tweet {
   data: ITweet;
 
