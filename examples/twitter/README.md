@@ -58,20 +58,20 @@ This example defines each type in its own file with the same name. This is a goo
 
 The output types defined for this solution are:
 
-- User ([types/User.ts](types/User.ts)): an output type representing a Twitter user.
-- Tweet ([types/Tweet.ts](types/Tweet.ts)): an output type representing a Tweet object.
-- Retweet ([types/Retweet.ts](types/Retweet.ts)): an output type representing a Retweet object.
+- User ([types/User.ts](./src/types/User.ts)): an output type representing a Twitter user.
+- Tweet ([types/Tweet.ts](./src/types/Tweet.ts)): an output type representing a Tweet object.
+- Retweet ([types/Retweet.ts](./src/types/Retweet.ts)): an output type representing a Retweet object.
 
 The input types defined for this solution are:
 
-- PaginationInput ([inputs/PaginationInput.ts](inputs/PaginationInput.ts)): common input fields for Twitter pagination.
-- SearchInput ([inputs/SearchInput.ts](inputs/SearchInput.ts)): input fields for basic search.
-- TimelineInput ([inputs/TimelineInput.ts](inputs/TimelineInput.ts)): input fields for user timelines.
+- PaginationInput ([inputs/PaginationInput.ts](./src/inputs/PaginationInput.ts)): common input fields for Twitter pagination.
+- SearchInput ([inputs/SearchInput.ts](./src/inputs/SearchInput.ts)): input fields for basic search.
+- TimelineInput ([inputs/TimelineInput.ts](./src/inputs/TimelineInput.ts)): input fields for user timelines.
 
 This solution also has some helper functions that are kept in a _lib_ folder:
 
-- getToken ([lib/getToken.ts](lib/getToken.ts)): fetch an access token for the Twitter API
-- makeTweet ([lib/makeTweet.ts](lib/makeTweet.ts)): this is a factory function to generate the correct output Tweet type (Retweet or Tweet) based on the data returned from the API.
+- getToken ([lib/getToken.ts](./src/lib/getToken.ts)): fetch an access token for the Twitter API
+- makeTweet ([lib/makeTweet.ts](./src/lib/makeTweet.ts)): this is a factory function to generate the correct output Tweet type (Retweet or Tweet) based on the data returned from the API.
 
 ## @context argument vs @context field
 
