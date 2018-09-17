@@ -133,7 +133,7 @@ users() {
 
 ## @context
 
-This decorator indicates that the field or is used as the context for the GraphQL query. The context is a global GraphQL object that is created for the request. The context can contain anything, but it usually contains helper methods and data models useful for resolving data from an underlying data source. These models and helper methods might use information specific to this request to help resolve data (such as user credentials).
+This decorator indicates that the field or argument is assigned the context for the GraphQL query. The context is a global GraphQL object that is created for the query. The context can contain anything, but it usually contains helper methods and data models useful for resolving data from an underlying data source. These models and helper methods might use information specific to this request to help resolve data (such as user credentials).
 
 ```javascript
 @type
