@@ -9,7 +9,6 @@ export { default as description } from "./decorators/description";
 export { default as field } from "./decorators/field";
 export { default as input } from "./decorators/input";
 export { default as nonNull } from "./decorators/nonNull";
-export { default as optional } from "./decorators/optional";
 export { default as required } from "./decorators/required";
 export { default as scalar } from "./decorators/scalar";
 export { default as type } from "./decorators/type";
