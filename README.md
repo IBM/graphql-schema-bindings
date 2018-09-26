@@ -203,7 +203,7 @@ class MyType {
 @type
 class QueryModel {
   @field(String)
-  get key(@context context) {
+  key(@context context) {
     return context.keyValue;
   }
 }
