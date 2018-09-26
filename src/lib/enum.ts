@@ -8,12 +8,11 @@ const enumTypeMap = new Map();
  * instance referencing the enum.
  * This may not match the name in the code so you can call
  * this function directly to define the enum before it is used.
- * @param {string} name
- * @param {T} target
- * @returns {T}
- * @template T
  */
-export function createEnum(name, target) {
+export function createEnum<T extends { [key: string]: any }>(
+  name: string,
+  target: T
+): T {
   const values = Object.keys(target)
     .filter(key => isNaN(Number(key))) // eslint-disable-line no-restricted-globals
     .reduce(
