@@ -1,5 +1,6 @@
 export { createSchema } from "./lib/common";
 export { createEnum } from "./lib/enum";
+export { createUnion } from "./lib/union";
 
 export { default as arg } from "./decorators/arg";
 export { default as context } from "./decorators/context";
