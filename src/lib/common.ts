@@ -6,10 +6,12 @@ import {
   GraphQLSchema,
   GraphQLString,
   GraphQLList,
-  GraphQLNonNull
+  GraphQLNonNull,
+  isUnionType
 } from "graphql";
 import Metadata from "./Metadata";
 import { getEnumType } from "./enum";
+import { getUnionType } from "./union";
 
 const outputTypes: any[] = [];
 
@@ -170,6 +172,9 @@ export function getParameterName(method: Function, index: number) {
 export function getGraphQLType(typeKey, target, propertyKey) {
   if (isEnumType(typeKey)) {
     return getEnumType(typeKey, target, propertyKey);
+  }
+  if (isUnionType(typeKey)) {
+    return getUnionType(typeKey);
   }
   return (
     (isClass(typeKey) && interfaceTypeMap.get(typeKey)) || typeMap.get(typeKey)
