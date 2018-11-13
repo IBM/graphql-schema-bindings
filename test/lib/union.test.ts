@@ -30,7 +30,7 @@ class UnionQuery {
     return oneDog;
   }
 }
-describe.only("Test Union types", () => {
+describe("Test Union types", () => {
   it("should be able to return an union type", async () => {
     const server = new TestServer(createSchema(UnionQuery));
     const { body } = await server.query({
