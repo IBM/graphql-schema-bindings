@@ -64,7 +64,7 @@
     "husky": "^0.14.3",
     "jest": "^24.8.0",
     "lint-staged": "^8.1.7",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "prettier": "^1.14.2",
     "supertest": "^4.0.2",
     "ts-jest": "^23.1.4",
