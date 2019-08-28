@@ -66,6 +66,7 @@
     "lint-staged": "^8.1.7",
     "lodash": "^4.17.13",
     "prettier": "^1.14.2",
+    "set-value": "^2.0.1",
     "supertest": "^4.0.2",
     "ts-jest": "^23.1.4",
     "typescript": "^3.0.3"
