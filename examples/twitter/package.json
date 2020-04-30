@@ -15,6 +15,7 @@
     "dotenv": "^6.0.0",
     "graphql": "^14.0.2",
     "graphql-schema-bindings": "^0.11.1",
+    "minimist": "^1.2.5",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   }
