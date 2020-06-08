@@ -10,7 +10,7 @@ To run this sample you first need to install [NodeJS](https://nodejs.org/en/down
 npm install
 ```
 
-The switch to the `examples/mutation` directory and running the following commands:
+Then switch to the `examples/mutation` directory and running the following commands:
 
 ```
 npm install
