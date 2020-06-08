@@ -1,4 +1,4 @@
-import { createSchema, type, field, ID, scalar, arg } from "../../src";
+import { createSchema, type, field, scalar, arg } from "../../src";
 import { expect } from "chai";
 import TestServer from "../TestServer";
 
