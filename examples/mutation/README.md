@@ -1,6 +1,6 @@
 # Mutation sample
 
-This sample shows you how to do very simple mutations.  It handles adds, deletes, and list operations.
+This sample shows you how to do very simple mutations.  It handles adds, deletes, updates, and list operations.
 
 ## Running this sample
 
