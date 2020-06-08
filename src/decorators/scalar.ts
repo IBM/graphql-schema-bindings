@@ -64,7 +64,7 @@ export default function scalar(target: ScalarTarget) {
       description: meta.description,
       serialize: target.serialize,
       parseValue: target.parseValue,
-      parseLiteral: target.parseLiteral || parseLiteral
+      parseLiteral: parseLiteral
     })
   );
 }

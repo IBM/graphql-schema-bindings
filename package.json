@@ -49,35 +49,34 @@
     }
   },
   "devDependencies": {
-    "@types/chai": "^4.1.4",
-    "@types/express": "^4.16.0",
-    "@types/graphql": "^0.13.4",
-    "@types/jest": "^23.3.1",
-    "@types/node": "^10.9.3",
-    "@types/supertest": "^2.0.5",
-    "acorn": "^7.1.1",
-    "apollo-server-express": "^2.4.0",
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.3",
-    "express": "^4.16.3",
+    "@types/chai": "^4.2.11",
+    "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.11",
+    "@types/supertest": "^2.0.9",
+    "acorn": "^7.2.0",
+    "apollo-server-express": "^2.14.2",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "express": "^4.17.1",
     "extend": "3.0.2",
-    "graphql": "^0.13.2",
+    "graphql": "^15.1.0",
     "handlebars": "^4.7.6",
-    "husky": "^0.14.3",
-    "jest": "^24.8.0",
-    "lint-staged": "^8.1.7",
-    "lodash": "^4.17.13",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.9",
+    "lodash": "^4.17.15",
     "minimist": "^1.2.5",
-    "prettier": "^1.14.2",
-    "set-value": "^2.0.1",
+    "prettier": "^2.0.5",
+    "set-value": "^3.0.2",
     "supertest": "^4.0.2",
-    "ts-jest": "^23.1.4",
-    "typescript": "^3.0.3"
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.12"
+    "reflect-metadata": "^0.1.13"
   },
   "peerDependencies": {
-    "graphql": ">=0.10.0"
+    "graphql": ">=15.1.0"
   }
 }
