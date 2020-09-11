@@ -5,6 +5,9 @@
   "scripts": {
     "start": "ts-node index.js"
   },
+  "devDependencies": {
+    "node-fetch": ">=2.6.1"
+  },
   "dependencies": {
     "apollo-server": "^2.14.2",
     "axios": "^0.19.2",

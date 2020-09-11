@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "node-fetch": ">=2.6.1"
+  },
   "dependencies": {
     "@types/dotenv": "^4.0.3",
     "apollo-server": "^2.14.2",

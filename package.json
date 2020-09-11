@@ -65,13 +65,14 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.9",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "minimist": "^1.2.5",
     "prettier": "^2.0.5",
     "set-value": "^3.0.2",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "node-fetch": ">=2.6.1"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13"
