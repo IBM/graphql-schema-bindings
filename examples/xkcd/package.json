@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "apollo-server": "^2.14.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "graphql": "^15.1.0",
     "graphql-schema-bindings": "^0.11.3",
     "minimist": "^1.2.5",
