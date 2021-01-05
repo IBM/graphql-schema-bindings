@@ -15,7 +15,7 @@
   "dependencies": {
     "@types/dotenv": "^4.0.3",
     "apollo-server": "^2.14.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dotenv": "^6.0.0",
     "graphql": "^15.1.0",
     "graphql-schema-bindings": "^0.11.3",
