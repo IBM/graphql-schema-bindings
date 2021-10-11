@@ -122,7 +122,12 @@ function getField(target, propertyKey) {
             return result;
           }
         }
-      : {})
+      : {}),
+    ...(metaField.channel ? {
+      resolve: {
+        subscribe: metaField.channel,
+      }
+    } : {})
   };
 }
 
@@ -181,8 +186,9 @@ export function getGraphQLType(typeKey, target, propertyKey) {
   );
 }
 
-export function createSchema(queryType, mutation?) {
+export function createSchema(queryType, mutation?, subscription?) {
   return new GraphQLSchema({
+    subscription: subscription && typeMap.get(subscription),
     mutation: mutation && typeMap.get(mutation),
     query: typeMap.get(queryType),
     types: outputTypes

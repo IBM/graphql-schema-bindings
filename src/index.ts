@@ -7,6 +7,7 @@ export { default as context } from "./decorators/context";
 export { default as defaultValue } from "./decorators/defaultValue";
 export { default as deprecated } from "./decorators/deprecated";
 export { default as description } from "./decorators/description";
+export { default as subscribe } from "./decorators/subscribe";
 export { default as field } from "./decorators/field";
 export { default as input } from "./decorators/input";
 export { default as nonNull } from "./decorators/nonNull";
