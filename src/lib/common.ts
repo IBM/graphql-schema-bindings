@@ -123,11 +123,11 @@ function getField(target, propertyKey) {
           }
         }
       : {}),
-    ...(metaField.channel ? {
-      resolve: {
-        subscribe: metaField.channel,
-      }
-    } : {})
+      ...(metaField.channel ? {
+        subscribe: {
+          subscribe: metaField.channel,
+        }
+      } : {})
   };
 }
 
