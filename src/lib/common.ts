@@ -124,9 +124,7 @@ function getField(target, propertyKey) {
         }
       : {}),
       ...(metaField.channel ? {
-        subscribe: {
-          subscribe: metaField.channel,
-        }
+        subscribe: metaField.channel,
       } : {})
   };
 }
