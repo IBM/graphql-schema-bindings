@@ -1,6 +1,7 @@
 import "reflect-metadata";
 
 const ARGS = Symbol("ARGS");
+const CHANNEL = Symbol("CHANNEL");
 const CONTEXT = Symbol("CONTEXT");
 const DEFAULT_VALUE = Symbol("DEFAULT_VALUE");
 const DEPRECATED = Symbol("DEPRECATED");
@@ -37,6 +38,12 @@ export default class Metadata {
   }
   set args(value) {
     this.setValue(ARGS, value);
+  }
+  get channel() {
+    return this.getValue(CHANNEL);
+  }
+  set channel(value) {
+    this.setValue(CHANNEL, value);
   }
   get context() {
     return this.getValue(CONTEXT);
