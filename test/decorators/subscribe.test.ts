@@ -4,7 +4,7 @@ import TestServer from "../TestServer";
 
 /**
  * Apollo server subcription example: https://github.com/apollographql/docs-examples/blob/main/apollo-server/v3/subscriptions/index.js#L34-L38
- * Grphql.js subscription resolver example: https://github.com/howtographql/graphql-js/blob/master/src/resolvers/Subscription.js
+ * Graphql.js subscription resolver example: https://github.com/howtographql/graphql-js/blob/master/src/resolvers/Subscription.js
  **/
 
 describe("Test @subscribe", () => {
