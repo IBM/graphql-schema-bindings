@@ -7,11 +7,11 @@
   },
   "devDependencies": {
     "node-fetch": ">=2.6.1",
-    "object-path": ">=0.11.5"
+    "object-path": "^0.11.8"
   },
   "dependencies": {
     "apollo-server": "^2.14.2",
-    "axios": "^0.19.2",
+    "axios": "^0.23.0",
     "graphql": "^15.1.0",
     "graphql-schema-bindings": "^0.11.3",
     "minimist": "^1.2.5",
