@@ -10,16 +10,21 @@ import TestServer from "../TestServer";
 describe("Test @subscribe", () => {
   it("should export a field on the type", async () => {
     @type
-    class SubscriptionQuery {
+    class Query {
+      @field(String)
+      foo;
+    }
+    @type
+    class Subscription {
       @field(String)
       @subscribe(() => 'async iterator')
       numberIncremented;
     }
 
-    const server = new TestServer(createSchema(SubscriptionQuery));
+    const server = new TestServer(createSchema(Query, null, Subscription));
     const { body } = await server.query({
       query: `
-        {
+        subscription {
           numberIncremented
         }
       `
