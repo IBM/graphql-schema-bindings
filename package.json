@@ -1,6 +1,6 @@
 {
   "name": "graphql-schema-bindings",
-  "version": "0.11.6",
+  "version": "0.11.7",
   "description": "an opinionated graphql server format for combining schema and implementation",
   "repository": {
     "type": "github",
@@ -61,19 +61,19 @@
     "express": "^4.17.1",
     "extend": "3.0.2",
     "graphql": "^15.1.0",
-    "handlebars": "^4.7.6",
-    "husky": "^4.2.5",
-    "jest": "^26.0.1",
+    "handlebars": "^4.7.7",
+    "husky": "^7.0.2",
+    "jest": "^27.2.5",
     "lint-staged": "^10.2.9",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.5",
-    "prettier": "^2.0.5",
-    "set-value": "^3.0.2",
-    "supertest": "^4.0.2",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5",
     "node-fetch": ">=2.6.1",
-    "object-path": ">=0.11.5"
+    "object-path": "^0.11.8",
+    "prettier": "^2.0.5",
+    "set-value": "^4.1.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^27.0.6",
+    "typescript": "^3.9.5"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13"
