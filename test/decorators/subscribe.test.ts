@@ -8,7 +8,7 @@ import TestServer from "../TestServer";
  **/
 
 describe("Test @subscribe", () => {
-  it("should export a field on the type", async () => {
+  it("subscribe can be registered", async () => {
     @type
     class Query {
       @field(String)
