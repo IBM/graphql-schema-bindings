@@ -10,7 +10,7 @@
     "object-path": "^0.11.8"
   },
   "dependencies": {
-    "apollo-server": "^2.14.2",
+    "apollo-server": "^2.25.3",
     "axios": "^0.23.0",
     "graphql": "^15.1.0",
     "graphql-schema-bindings": "^0.11.3",
