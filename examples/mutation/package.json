@@ -14,7 +14,7 @@
     "axios": "^0.23.0",
     "graphql": "^15.1.0",
     "graphql-schema-bindings": "^0.11.3",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   }
