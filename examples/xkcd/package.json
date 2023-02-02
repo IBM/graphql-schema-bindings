@@ -6,15 +6,15 @@
     "start": "ts-node index.js"
   },
   "devDependencies": {
-    "node-fetch": ">=2.6.1",
+    "node-fetch": "^3.3.0",
     "object-path": "^0.11.8"
   },
   "dependencies": {
-    "apollo-server": "^2.14.2",
+    "apollo-server": "^3.11.1",
     "axios": "^0.23.0",
     "graphql": "^15.1.0",
-    "graphql-schema-bindings": "^0.11.3",
-    "minimist": "^1.2.5",
+    "graphql-schema-bindings": "^0.12.0",
+    "minimist": "^1.2.7",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   }
