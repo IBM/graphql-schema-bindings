@@ -79,7 +79,7 @@ describe("Test @arg", () => {
     }).to.throw(Error, "undefined");
   });
 
-  it("should return 400 if missing required argument", () => {
+  it("should return 400 if missing required argument", async () => {
     @type
     class ReqArgQuery {
       @field(String)
@@ -92,7 +92,8 @@ describe("Test @arg", () => {
       }
     }
     const server = new TestServer(createSchema(ReqArgQuery));
-    return server.query({ query: `{ req }` }).expect(400);
+    const res = await server.query({ query: `{ req }` });
+    expect(res.status).to.be.equal(400);
   });
 
   it("should be able to accept a thunk type argument", async () => {
