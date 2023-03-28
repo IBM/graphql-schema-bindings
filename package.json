@@ -8,7 +8,8 @@
   },
   "author": "Cory Cook",
   "contributors": [
-    "Zack Grossbart <zack@grossbart.com>"
+    "Zack Grossbart <zack@grossbart.com>",
+    "Guan Jun-Ming <gjunming@gmail.com>"
   ],
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/index.js",
