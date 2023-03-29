@@ -19,7 +19,7 @@ export default function type(target) {
     description: `Interface for ${target.name}`,
     fields: () => getAllFields(target.prototype),
     name: `I${target.name}`,
-    resolveType: value => getType(value && value.constructor)
+    resolveType: value => getType(value && value.constructor).name
   });
   interfaces.push(interfaceTypeDef);
   setInterface(target, interfaceTypeDef);

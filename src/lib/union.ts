@@ -18,7 +18,7 @@ export function createUnion(name, types) {
       const theType = types.find(oneType => {
         return value instanceof oneType;
       });
-      return getType(theType);
+      return getType(theType).name;
     }
   });
   unionTypeMap.set(unionType, unionType);
