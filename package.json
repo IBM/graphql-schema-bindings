@@ -1,6 +1,6 @@
 {
   "name": "graphql-schema-bindings",
-  "version": "0.12.0",
+  "version": "1.0.0",
   "description": "an opinionated graphql server format for combining schema and implementation",
   "repository": {
     "type": "github",
